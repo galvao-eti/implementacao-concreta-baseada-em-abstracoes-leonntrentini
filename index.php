@@ -30,9 +30,19 @@ try {
 //}
 
 /*********Delete***************/
+//$produto = new Produto($base);
+//try {
+//    $produto->delete("id = 11");
+//} catch (Exception $e) {
+//    echo $e->getMessage();
+//}
+
+/*********Update***************/
 $produto = new Produto($base);
+$produto->nome = 'vagada';
+$produto->preco = 123.00;
 try {
-    $produto->delete("id = 11");
+    $produto->update("id = 12");
 } catch (Exception $e) {
     echo $e->getMessage();
 }
