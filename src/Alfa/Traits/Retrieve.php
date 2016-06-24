@@ -12,12 +12,18 @@ trait Retrieve {
 //        $colunas = array_keys($atributos);
 
         $sql = "SELECT " . implode(', ', $colunas) . " FROM " . $entidade . " WHERE $clausula";
-        $result = mysqli_query(self::$servidor->conexao, $sql);
+        $result = mysqli_query(self::$servidor->conexao, $sql) or die(mysqli_error());
         echo $sql;
 
-        if ($result) {
+        
+
+        
+
+        if (!$result) {
             throw new \Exception(mysqli_error(self::$servidor->conexao));
         }
+
+
         return $result;
     }
 
